@@ -71,7 +71,7 @@ const LineChart = ({
                 {
                     data: data,
                     borderColor: borderColor,
-                    borderWidth: 2,
+                    borderWidth: 3,
                 }
             ]
         }

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../../Units/Card/card";
 
-import styles from './pieChart.module.css';
 import PieChartProps from './pieChart.d';
 
 import { colorCodes } from "../../../constants";
@@ -30,14 +29,11 @@ const PieChart = ({
 
         const filteredDevData = devData.filter((data: any) => data.name == filters?.name)[0];
 
-        console.log(filteredDevData)
         const count = filteredDevData.totalActivity.map((each: any) => parseInt(each.value));
         const countSum = count.reduce((acc: number, curr: number) => {
             return acc + curr;
         }, 0);
-
         const percentage = count.map((each: number) => Math.round((each/countSum)*100));
-
         const labels = colorCodes.map((each:any) => each.label);
         const backgroundColor = colorCodes.map((each:any) => each.fillColor);
 
@@ -62,7 +58,12 @@ const PieChart = ({
             width={350}
             heading={'Percentage Distribution'}
         >
-            <Pie data={pieGraph} />
+            <Pie    
+                style={{
+                    marginTop: '10px'
+                }}
+                data={pieGraph} 
+            />
         </Card>
     )
 }

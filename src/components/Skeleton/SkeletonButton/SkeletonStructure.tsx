@@ -10,11 +10,12 @@ const SkeletonStructure = () => {
             <div className={styles.filterSkeleton}>
                 <SkeletonShell 
                     width={800}
-                    height={70}
+                    height={90}
                 />
                 <div className={styles.metricsSkeleton}>
-                    {[...Array(4)].map(() => (
+                    {[...Array(4)].map((_, index:number) => (
                         <SkeletonShell 
+                            key={index}
                             height={180}
                             width={450}
                         />
