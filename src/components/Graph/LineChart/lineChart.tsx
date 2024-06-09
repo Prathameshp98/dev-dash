@@ -42,7 +42,7 @@ const LineChart = ({
     const[lineGraph, setLineGraph] = useState<any>({
         labels: [],
         datasets: []
-    })
+    });
 
     useEffect(() => {
 
@@ -64,8 +64,6 @@ const LineChart = ({
         if(findOption){
             borderColor = findOption.fillColor;
         }
-
-        console.log(data)
 
         const lineChartData: any = {
             labels: labels,

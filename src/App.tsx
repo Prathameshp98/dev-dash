@@ -61,7 +61,10 @@ function App() {
             >
 
             </Card>
-            <PieChart />
+            <PieChart 
+              devData={devData}
+              filters={filters}
+            />
           </div>
         </div>
       : <SkeletonButton />}
