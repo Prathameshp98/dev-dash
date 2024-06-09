@@ -3,7 +3,6 @@ import styles from './filters.module.css';
 import FilterProps from './filters.d';
 
 import Dropdown from '../Dropdown/dropdown';
-// import Date from '../Date/date';
 
 const Filter = ({
     setFilters,
@@ -18,10 +17,6 @@ const Filter = ({
                 filters={filters}
                 devData={devData}
             />
-            {/* <Date 
-                setFilters={setFilters}
-                filters={filters}
-            /> */}
         </div>
     )
 }

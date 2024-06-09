@@ -31,7 +31,7 @@ const SkeletonStructure = () => {
                         width={550}
                     />
                     <SkeletonShell 
-                        height={400}
+                        height={380}
                         width={350}
                     />
                 </div>

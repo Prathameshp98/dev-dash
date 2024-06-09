@@ -54,7 +54,7 @@ const PieChart = ({
 
     return (
         <Card
-            height={400}
+            height={380}
             width={350}
             heading={'Percentage Distribution'}
         >

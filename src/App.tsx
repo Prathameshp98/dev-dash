@@ -9,9 +9,9 @@ import Layout from './components/Layout/Layout';
 import Metrics from './components/Metrics/metrics';
 import Filter from './components/Units/Filters/FIlters/filters';
 import LineChart from './components/Graph/LineChart/lineChart';
-import SkeletonButton from './components/Skeleton/SkeletonButton/SkeletonStructure';
-import Card from './components/Units/Card/card';
+import SkeletonStructure from './components/Skeleton/SkeletonButton/SkeletonStructure';
 import PieChart from './components/Graph/PieChart/pieChart';
+import Table from './components/Table/table';
 
 function App() {
 
@@ -53,19 +53,17 @@ function App() {
             filters={filters}
           />
           <div className={styles.graphGroup}>
-            <Card
-              width={550}
-              height={400}
-            >
-
-            </Card>
+            <Table 
+              devData={devData}
+              filters={filters}
+            />
             <PieChart 
               devData={devData}
               filters={filters}
             />
           </div>
         </div>
-      : <SkeletonButton />}
+      : <SkeletonStructure />}
     </Layout>
   )
 }
