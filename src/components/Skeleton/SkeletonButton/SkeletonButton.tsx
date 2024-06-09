@@ -6,9 +6,9 @@ import SkeletonShell from '../SkeletonShell/skeletonShell';
 const SkeletonButton = () => {
 
     return (
-        <div>
-            
-        </div>
+       <div>
+        
+       </div>
     )
 }
 

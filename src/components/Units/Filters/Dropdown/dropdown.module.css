@@ -1,0 +1,15 @@
+
+.dropdown {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: var(--heading---h4---regular);
+    color: var(--font-light-outline);
+    border: 1px solid var(--font-light-outline);
+    background-color: var(--background-color-white);
+    cursor: pointer;
+}
+
+.dropdown:focus-visible {
+    outline: none;
+}

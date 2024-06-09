@@ -1,0 +1,19 @@
+
+.dateGroup {
+    display: flex;
+    gap: 20px;
+}
+
+.dateGroup input {
+    width: 220px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: var(--heading---h4---regular);
+    color: var(--font-light-outline);
+    border: 1px solid var(--font-light-outline);
+    cursor: pointer;
+}
+
+.dateGroup input:focus-visible {
+    outline: none;
+}

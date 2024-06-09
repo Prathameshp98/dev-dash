@@ -10,5 +10,24 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 30px;
-    justify-content: center;
+    justify-content: left;
+}
+
+.metricsInner h2 {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+    font-size: var(--display---d0---regular);
+    color: var(--brand-color);
+}
+
+.metricsInner .range {
+    margin-top: 0;
+    color: var(--font-light-outline);
+    font-size: var(--paragraph---p2---regular);
+    width: 100%;
+    text-align: center;
+}
+.metricsInner .range span {
+    font-weight: var(--font-weight-600);
 }
