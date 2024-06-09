@@ -8,6 +8,8 @@ import getDeveloperStats from './api/getDeveloperStats';
 import Layout from './components/Layout/Layout';
 import Metrics from './components/Metrics/metrics';
 import Filter from './components/Units/Filters/FIlters/filters';
+import LineChart from './components/Graph/LineChart/lineChart';
+import SkeletonButton from './components/Skeleton/SkeletonButton/SkeletonStructure';
 
 function App() {
 
@@ -33,7 +35,7 @@ function App() {
 
   return (
     <Layout>
-      {devData && 
+      {devData ?
         <div className={styles.app}>
           <div className={styles.filter}>
             <Filter 
@@ -46,8 +48,12 @@ function App() {
             devData={devData}
             filters={filters}
           />
+          <LineChart 
+            devData={devData}
+            filters={filters}
+          />
         </div>
-      }
+      : <SkeletonButton />}
     </Layout>
   )
 }

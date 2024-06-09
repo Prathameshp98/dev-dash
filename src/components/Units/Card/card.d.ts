@@ -5,4 +5,7 @@ export default interface CardProps {
     heading?: string;
     width: number | string;
     height: number | string;
+    hasDropdown?: boolean;
+    dropdownOptions?: string[];
+    setSelected?: (arg) => void;
 }

@@ -11,3 +11,23 @@
     font-size: var(--heading---h4---regular);
     color: var(--grey-text-color);
 }
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardHeader .dropdown {
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: var(--heading---h4---regular);
+    color: var(--font-light-outline);
+    border: 1px solid var(--font-light-outline);
+    background-color: var(--background-color-white);
+    cursor: pointer;
+}
+
+.cardHeader .dropdown:focus-visible {
+    outline: none;
+}
