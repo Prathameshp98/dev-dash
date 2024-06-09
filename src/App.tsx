@@ -1,12 +1,28 @@
 
-import './App.css'
+import { useEffect } from 'react';
+import './base_styles.css';
+import styles from './App.module.css';
+
+import getDeveloperStats from './api/getDeveloperStats';
+
+import Layout from './components/Layout/Layout';
+import Metrics from './components/Metrics/metrics';
 
 function App() {
 
-  return (
-    <div>
+  useEffect(() => {
+    (async() => {
+      const res = await getDeveloperStats();
+      console.log(res)
+    })();
+  });
 
-    </div>
+  return (
+    <Layout>
+      <div className={styles.app}>
+        <Metrics />
+      </div>
+    </Layout>
   )
 }
 

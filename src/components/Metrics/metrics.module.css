@@ -1,0 +1,14 @@
+
+.metrics {
+    width: 1000px;
+    padding: 50px 0;
+    display: flex;
+}
+
+.metricsInner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}

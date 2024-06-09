@@ -1,0 +1,45 @@
+
+.header {
+    height: 80px;
+    background-color: var(--font-offwhitedark);
+    display: flex;
+    justify-content: center;
+}
+
+.headerInner {
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerInner h1 {
+    font-size: var(--display---d2---regular);
+    font-weight: var(--font-weight-400);
+    color: var(--brand-color);
+}
+
+.headerInner img {
+    width: 50px;
+    cursor: pointer;
+}
+
+.footer {
+    margin-top: 100px;
+    height: 40px;
+    background-color: var(--font-offwhitedark);
+    display: flex;
+    justify-content: center;
+}
+
+.footerInner {
+    width: 1000px;
+    display: flex;
+    align-items: center;
+}
+
+.footerInner p {
+    width: 100%;
+    text-align: center;
+    font-size: var(--paragraph---p2---regular);
+}

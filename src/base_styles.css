@@ -1,0 +1,81 @@
+
+:root {
+
+    /* Color Styles */
+    --background-color-white: #f8f8f8;
+    --font-offwhite: #f0f0f0;
+    --font-offwhitedark: #e0e0e0;
+    --font-offwhitedarker: #cacaca;
+    --font-offwhitegrey: #b6b6b6;
+    --font-light-outline: #727272;
+    --brand-color: #001861;
+    --grey-text-color: #424242;
+    --main-text-color: #363636;
+    --footer-background-color: #1b1a1a;
+    --font-black: #131313;
+    --outline-black: #0f0f0f;
+
+    /* Text-size styles */
+    --display---d0---regular: 60px;
+    --display---d0---regular--tablet: 50px;
+    --display---d1---regular: 40px;
+    --display---d1---medium: 40px;
+    --display---d1---bold: 40px;
+    --display---d1---uppercase-m: 40px;
+    --display---d2---regular: 35px;
+    --display---d2---medium: 35px;
+    --display---d2---bold: 35px;
+    --display---d2---uppercase-m: 35px;
+    --heading---h1---regular: 30px;
+    --heading---h1---medium: 30px;
+    --heading---h1---bold: 30px;
+    --heading---h1---uppercase-m: 30px;
+    --heading---h2---regular: 25px;
+    --heading---h2---medium: 25px;
+    --heading---h2---bold: 25px;
+    --heading---h2---uppercase-m: 25px;
+    --heading---h3---regular: 20px;
+    --heading---h3---medium: 20px;
+    --heading---h3---bold: 20px;
+    --heading---h3---uppercase-m: 20px;
+    --heading---h4---regular: 18px;
+    --heading---h4---medium: 18px;
+    --heading---h4---bold: 18px;
+    --heading---h4---uppercase-m: 18px;
+    --paragraph---p1---regular: 16px;
+    --paragraph---p1---medium: 16px;
+    --paragraph---p1---bold: 16px;
+    --paragraph---p1---italic: 16px;
+    --paragraph---p1---uppercase-m: 16px;
+    --paragraph-----p1---underline-r: 16px;
+    --paragraph---p2---regular: 14px;
+    --paragraph---p2---medium: 14px;
+    --paragraph---p2---bold: 14px;
+    --paragraph---p2---italic: 14px;
+    --paragraph---p2---uppercase-m: 14px;
+    --paragraph---p2---underline-r: 14px;
+    --paragraph---p3---regular: 12px;
+    --paragraph---p3---medium: 12px;
+    --paragraph---p3---bold: 12px;
+    --paragraph---p3---italic: 12px;
+    --paragraph---p3---uppercase-m: 12px;
+    --paragraph---p3---underline-r: 12px;
+    --less--important--info---regular: 10px;
+    --less--important--info---medium: 10px;
+    --less--important--info---bold: 10px;
+    --less--important--info---uppercase-m: 10px;
+    --less--important--info---italic: 10px;
+    --less--important--info---underline-r: 10px;
+
+    /* Font weight styles */
+    --font-weight-100: 100;
+    --font-weight-200: 200;
+    --font-weight-300: 300;
+    --font-weight-400: 400;
+    --font-weight-500: 500;
+    --font-weight-600: 600;
+    --font-weight-700: 700;
+    --font-weight-800: 800;
+    --font-weight-900: 900;
+
+}
