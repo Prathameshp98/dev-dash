@@ -1,4 +1,5 @@
 
+// compare the date in order to avoid date selection where start date > end date
 const dataCompare = (start: string, end: string) => {
     if(start && end){
         const startDateObj = new Date(start);

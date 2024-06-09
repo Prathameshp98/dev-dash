@@ -9,7 +9,7 @@ import Layout from './components/Layout/Layout';
 import Metrics from './components/Metrics/metrics';
 import Filter from './components/Units/Filters/FIlters/filters';
 import LineChart from './components/Graph/LineChart/lineChart';
-import SkeletonStructure from './components/Skeleton/SkeletonButton/SkeletonStructure';
+import SkeletonStructure from './components/Skeleton/SkeletonStructure/SkeletonStructure';
 import PieChart from './components/Graph/PieChart/pieChart';
 import Table from './components/Table/table';
 

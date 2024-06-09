@@ -1,4 +1,5 @@
 
+// converts the date from YYYY/MM/DD to Month Day, Year format eg May 22, 2024
 const formatDate = (dateString: string | undefined) => {
 
     let date;
