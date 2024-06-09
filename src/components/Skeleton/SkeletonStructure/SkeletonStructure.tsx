@@ -27,7 +27,7 @@ const SkeletonStructure = () => {
                 />
                 <div className={styles.chartSkeleton}>
                     <SkeletonShell 
-                        height={400}
+                        height={380}
                         width={550}
                     />
                     <SkeletonShell 
