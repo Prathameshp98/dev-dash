@@ -2,7 +2,6 @@
 import styles from './SkeletonStructure.module.css';
 
 import SkeletonShell from '../SkeletonShell/skeletonShell';
-import Card from '../../Units/Card/card';
 
 const SkeletonStructure = () => {
 
@@ -14,7 +13,7 @@ const SkeletonStructure = () => {
                     height={70}
                 />
                 <div className={styles.metricsSkeleton}>
-                    {[...Array(4)].map((each) => (
+                    {[...Array(4)].map(() => (
                         <SkeletonShell 
                             height={180}
                             width={450}
@@ -25,6 +24,16 @@ const SkeletonStructure = () => {
                     height={500}
                     width={930}
                 />
+                <div className={styles.chartSkeleton}>
+                    <SkeletonShell 
+                        height={400}
+                        width={550}
+                    />
+                    <SkeletonShell 
+                        height={400}
+                        width={350}
+                    />
+                </div>
             </div>
         </div>
     )
