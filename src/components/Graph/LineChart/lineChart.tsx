@@ -1,16 +1,14 @@
-import { useEffect, useState } from 'react';
+import { 
+    useEffect, 
+    useState
+} from 'react';
 
 import Card from '../../Units/Card/card';
-
 import formatDate from '../../../utils/formatDate';
-
-import LineChartProps from './lineChart.d';
-
 import { 
     graphOptions,
     colorCodes
 } from '../../../constants';
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -23,6 +21,9 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
+import { useUserContext } from '../../../Context/useContext/useUserContext';
+import { useFilterContext } from '../../../Context/useContext/useFilterContext';
+
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -33,11 +34,9 @@ ChartJS.register(
     Legend
 );
 
-const LineChart = ({
-    devData,
-    filters
-}: LineChartProps) => {
-
+const LineChart = () => {
+    const devData = useUserContext();
+    const { filters } = useFilterContext();
     const[selected, setSelected] = useState<string>('PR Open');
     const[lineGraph, setLineGraph] = useState<any>({
         labels: [],
@@ -46,39 +45,40 @@ const LineChart = ({
 
     useEffect(() => {
 
-        const filteredDevData = devData.filter((data: any) => data.name == filters?.name)[0];
+        if(devData.length){
+            const filteredDevData = devData.filter((data: any) => data.name == filters?.name)[0];
 
-        const labels: any[] = filteredDevData.dayWiseActivity.map((each: any) => {
-            return formatDate(each.date)
-        });
+            const labels: any[] = filteredDevData.dayWiseActivity.map((each: any) => {
+                return formatDate(each.date)
+            });
 
-        const data: any[] = filteredDevData.dayWiseActivity.map((each: any) => {
-            const isSelectedItem = each.items.children.find((item: any) => item.label === selected);
-            if (isSelectedItem) {
-                return isSelectedItem.count;
-            }
-        });
-
-        const findOption = colorCodes.find((item: any) => item.label === selected);
-        let borderColor;
-        if(findOption){
-            borderColor = findOption.fillColor;
-        }
-
-        const lineChartData: any = {
-            labels: labels,
-            datasets: [
-                {
-                    data: data,
-                    borderColor: borderColor,
-                    borderWidth: 3,
+            const data: any[] = filteredDevData.dayWiseActivity.map((each: any) => {
+                const isSelectedItem = each.items.children.find((item: any) => item.label === selected);
+                if (isSelectedItem) {
+                    return isSelectedItem.count;
                 }
-            ]
+            });
+
+            const findOption = colorCodes.find((item: any) => item.label === selected);
+            let borderColor;
+            if(findOption){
+                borderColor = findOption.fillColor;
+            }
+
+            const lineChartData: any = {
+                labels: labels,
+                datasets: [
+                    {
+                        data: data,
+                        borderColor: borderColor,
+                        borderWidth: 3,
+                    }
+                ]
+            }
+
+            setLineGraph(lineChartData);
         }
-
-        setLineGraph(lineChartData);
-
-    }, [filters, selected]);
+    }, [filters, selected, devData]);
 
     
 

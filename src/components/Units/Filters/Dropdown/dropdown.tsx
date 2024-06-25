@@ -2,13 +2,16 @@
 import Card from "../../Card/card";
 
 import styles from './dropdown.module.css';
-import DropdownProps from './dropdown.d';
+import { useUserContext } from "../../../../Context/useContext/useUserContext";
+import { useFilterContext } from "../../../../Context/useContext/useFilterContext";
 
-const Dropdown = ({ 
-    setFilters,
-    filters,
-    devData
-}: DropdownProps) => {
+const Dropdown = () => {
+
+    const devData = useUserContext();
+    const {
+        filters,
+        setFilters
+    } = useFilterContext();
 
     return (
         <Card

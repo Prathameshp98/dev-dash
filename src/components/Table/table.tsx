@@ -1,19 +1,22 @@
 
-import { useEffect, useState } from 'react';
+import { 
+    useEffect, 
+    useState
+} from 'react';
 
 import styles from './table.module.css';
-import TableProps from './table.d';
 
 import Card from '../Units/Card/card';
 
 import formatDate from '../../utils/formatDate';
 import { colorCodes } from '../../constants';
+import { useUserContext } from '../../Context/useContext/useUserContext';
+import { useFilterContext } from '../../Context/useContext/useFilterContext';
 
-const Table = ({
-    devData,
-    filters
-}: TableProps) => {
+const Table = () => {
 
+    const devData = useUserContext();
+    const { filters } = useFilterContext();
     const[tableData, setTableData] = useState<{
         dates: string[];
         tableCells: string[][];
@@ -24,34 +27,34 @@ const Table = ({
 
     useEffect(() => {
 
-        const filteredDevData = devData.filter((data: any) => data.name == filters?.name)[0];
+        if(devData.length){
+            const filteredDevData = devData.filter((data: any) => data.name == filters?.name)[0];
 
-        const dates = filteredDevData.dayWiseActivity.map((each: any) => formatDate(each.date));
-        dates.unshift('')
-        const tableCells: any[] = [];
+            const dates = filteredDevData.dayWiseActivity.map((each: any) => formatDate(each.date));
+            dates.unshift('')
+            const tableCells: any[] = [];
 
-        colorCodes.map((each: any) => {
-            tableCells.push([each.label])
-        });
-
-        tableCells.map((_, index: number) => {
-            filteredDevData.dayWiseActivity.map((each: any) => {
-                const isReq = each.items.children.find((item: any) => item.label === tableCells[index][0])
-                if(isReq){
-                    tableCells[index].push(isReq.count);
-                }
+            colorCodes.map((each: any) => {
+                tableCells.push([each.label])
             });
-        });
 
-        console.log(tableCells)
+            tableCells.map((_, index: number) => {
+                filteredDevData.dayWiseActivity.map((each: any) => {
+                    const isReq = each.items.children.find((item: any) => item.label === tableCells[index][0])
+                    if(isReq){
+                        tableCells[index].push(isReq.count);
+                    }
+                });
+            });
 
-        setTableData({
-            dates: dates,
-            tableCells: tableCells
-        });
+            console.log(tableCells)
 
-
-    }, [filters]);
+            setTableData({
+                dates: dates,
+                tableCells: tableCells
+            });
+        }
+    }, [filters, devData]);
 
     return (
         <Card

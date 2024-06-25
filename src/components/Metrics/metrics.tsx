@@ -1,16 +1,16 @@
 
 import styles from './metrics.module.css';
-import MetricsProps from './metrics.d';
 
 import Card from '../Units/Card/card';
 import { useEffect, useState } from 'react';
 import formatDate from '../../utils/formatDate';
+import { useUserContext } from '../../Context/useContext/useUserContext';
+import { useFilterContext } from '../../Context/useContext/useFilterContext';
 
-const Metrics = ({
-    devData,
-    filters
-}: MetricsProps) => {
+const Metrics = () => {
 
+    const devData = useUserContext();
+    const { filters } = useFilterContext();
     const[cardData, setCardData] = useState<{
         heading: string;
         count: number | string;
@@ -24,19 +24,22 @@ const Metrics = ({
     });
 
     useEffect(() => {
-        const filteredDevData = devData.filter((data: any) => data.name == filters?.name);
-        setCardData([
-            { heading: 'Total commits', count: filteredDevData[0].totalActivity[2].value },
-            { heading: 'Avg commits per day', count: Math.round(filteredDevData[0].totalActivity[2].value/14) },
-            { heading: 'Total PR reviewed', count: filteredDevData[0].totalActivity[3].value },
-            { heading: 'Total PR comments', count: filteredDevData[0].totalActivity[4].value },
-        ]);
-
-        setFormattedDate({
-            start: formatDate(filters?.startDate),
-            end: formatDate(filters?.endDate)
-        })
-    }, [filters]);
+        if(devData.length){
+            const filteredDevData = devData.filter((data: any) => data.name == filters?.name);
+            setCardData([
+                { heading: 'Total commits', count: filteredDevData[0].totalActivity[2].value },
+                { heading: 'Avg commits per day', count: Math.round(filteredDevData[0].totalActivity[2].value/14) },
+                { heading: 'Total PR reviewed', count: filteredDevData[0].totalActivity[3].value },
+                { heading: 'Total PR comments', count: filteredDevData[0].totalActivity[4].value },
+            ]);
+    
+            setFormattedDate({
+                start: formatDate(filters?.startDate),
+                end: formatDate(filters?.endDate)
+            })
+        }
+  
+    }, [filters, devData]);
 
     return (
         <div className={styles.metrics}>
