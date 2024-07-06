@@ -11,23 +11,17 @@ import UserContext from './Context/createContext/userContext';
 import FilterContext from './Context/createContext/filterContext';
 
 import { Filters } from './Context/createContext/filterContext';
-import { DeveloperContextType, Developer } from './Context/createContext/userContext';
+import { Developer } from './Context/createContext/userContext';
+
+import { 
+  developerDefault,
+  filterDefault 
+} from './constants';
 
 function App() {
 
-  const[developer, setDeveloper] = useState<Developer[]>([
-      {
-          name: '',
-          totalActivity: [],
-          dayWiseActivity: [],
-          activeDays: ''
-      }
-  ]);
-  const[filters, setFilters] = useState<Filters>({
-    name: 'all',
-    startDate: '2024-05-06',
-    endDate: '2024-05-19'
-  })
+  const[developer, setDeveloper] = useState<Developer[]>(developerDefault);
+  const[filters, setFilters] = useState<Filters>(filterDefault)
 
   useEffect(() => {
     (async() => {

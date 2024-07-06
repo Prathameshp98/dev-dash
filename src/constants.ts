@@ -1,4 +1,19 @@
 
+const developerDefault = [
+    {
+        name: '',
+        totalActivity: [],
+        dayWiseActivity: [],
+        activeDays: ''
+    }
+]
+
+const filterDefault = {
+    name: 'all',
+    startDate: '2024-05-06',
+    endDate: '2024-05-19'
+}
+
 const graphOptions = {
     responsive: true,
     plugins: {
@@ -57,5 +72,7 @@ const colorCodes = [
 
 export {
     graphOptions,
-    colorCodes
+    colorCodes,
+    developerDefault,
+    filterDefault
 }

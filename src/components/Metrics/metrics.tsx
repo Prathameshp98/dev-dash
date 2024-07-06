@@ -25,14 +25,16 @@ const Metrics = () => {
         end: ''
     });
 
+    // console.log(developer)
+
     useEffect(() => {
         if(developer[0].name){
-            const filteredDevData = developer.filter((data: any) => data.name == filters?.name);
+            console.log(developer[0])
             setCardData([
-                { heading: 'Total commits', count: filteredDevData[0].totalActivity[2].value },
-                { heading: 'Avg commits per day', count: Math.round(filteredDevData[0].totalActivity[2].value/14) },
-                { heading: 'Total PR reviewed', count: filteredDevData[0].totalActivity[3].value },
-                { heading: 'Total PR comments', count: filteredDevData[0].totalActivity[4].value },
+                { heading: 'Total commits', count: developer[0].totalActivity[2].value },
+                { heading: 'Avg commits per day', count: Math.round(developer[0].totalActivity[2].value/14) },
+                { heading: 'Total PR reviewed', count: developer[0].totalActivity[3].value },
+                { heading: 'Total PR comments', count: developer[0].totalActivity[4].value },
             ]);
     
             setFormattedDate({

@@ -13,8 +13,3 @@ const getDeveloperStats = async(
 };
 
 export default getDeveloperStats;
-
-
-// &
-//       startdate=${startdate}&
-//       enddate=${enddate}
