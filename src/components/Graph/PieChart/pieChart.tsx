@@ -19,7 +19,9 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChart = () => {
 
-    const devData = useUserContext();
+    const { 
+        developer
+    } = useUserContext();
     const { filters } = useFilterContext();
     const[pieGraph, setPieGraph] = useState<any>({
         labels: [],
@@ -27,10 +29,9 @@ const PieChart = () => {
     });
 
     useEffect(() => {
-        if(devData.length){
-            const filteredDevData = devData.filter((data: any) => data.name == filters?.name)[0];
+        if(developer[0].name){
 
-            const count = filteredDevData.totalActivity.map((each: any) => parseInt(each.value));
+            const count = developer[0].totalActivity.map((each: any) => parseInt(each.value));
             const countSum = count.reduce((acc: number, curr: number) => {
                 return acc + curr;
             }, 0);
@@ -52,7 +53,7 @@ const PieChart = () => {
 
             setPieGraph(data);
         }
-    }, [filters, devData]);
+    }, [filters, developer]);
 
     return (
         <Card

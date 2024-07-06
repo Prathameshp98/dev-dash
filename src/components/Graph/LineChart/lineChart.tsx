@@ -35,7 +35,9 @@ ChartJS.register(
 );
 
 const LineChart = () => {
-    const devData = useUserContext();
+    const { 
+        developer
+    } = useUserContext();
     const { filters } = useFilterContext();
     const[selected, setSelected] = useState<string>('PR Open');
     const[lineGraph, setLineGraph] = useState<any>({
@@ -45,14 +47,12 @@ const LineChart = () => {
 
     useEffect(() => {
 
-        if(devData.length){
-            const filteredDevData = devData.filter((data: any) => data.name == filters?.name)[0];
-
-            const labels: any[] = filteredDevData.dayWiseActivity.map((each: any) => {
+        if(developer[0].name){
+            const labels: any[] = developer[0].dayWiseActivity.map((each: any) => {
                 return formatDate(each.date)
             });
 
-            const data: any[] = filteredDevData.dayWiseActivity.map((each: any) => {
+            const data: any[] = developer[0].dayWiseActivity.map((each: any) => {
                 const isSelectedItem = each.items.children.find((item: any) => item.label === selected);
                 if (isSelectedItem) {
                     return isSelectedItem.count;
@@ -78,7 +78,7 @@ const LineChart = () => {
 
             setLineGraph(lineChartData);
         }
-    }, [filters, selected, devData]);
+    }, [filters, selected, developer]);
 
     
 

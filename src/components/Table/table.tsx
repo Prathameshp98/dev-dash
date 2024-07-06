@@ -15,7 +15,9 @@ import { useFilterContext } from '../../Context/useContext/useFilterContext';
 
 const Table = () => {
 
-    const devData = useUserContext();
+    const { 
+        developer
+    } = useUserContext();
     const { filters } = useFilterContext();
     const[tableData, setTableData] = useState<{
         dates: string[];
@@ -27,10 +29,9 @@ const Table = () => {
 
     useEffect(() => {
 
-        if(devData.length){
-            const filteredDevData = devData.filter((data: any) => data.name == filters?.name)[0];
+        if(developer[0].name){
 
-            const dates = filteredDevData.dayWiseActivity.map((each: any) => formatDate(each.date));
+            const dates = developer[0].dayWiseActivity.map((each: any) => formatDate(each.date));
             dates.unshift('')
             const tableCells: any[] = [];
 
@@ -39,7 +40,7 @@ const Table = () => {
             });
 
             tableCells.map((_, index: number) => {
-                filteredDevData.dayWiseActivity.map((each: any) => {
+                developer[0].dayWiseActivity.map((each: any) => {
                     const isReq = each.items.children.find((item: any) => item.label === tableCells[index][0])
                     if(isReq){
                         tableCells[index].push(isReq.count);
@@ -47,14 +48,12 @@ const Table = () => {
                 });
             });
 
-            console.log(tableCells)
-
             setTableData({
                 dates: dates,
                 tableCells: tableCells
             });
         }
-    }, [filters, devData]);
+    }, [filters, developer]);
 
     return (
         <Card

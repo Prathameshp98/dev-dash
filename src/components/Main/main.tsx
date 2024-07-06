@@ -13,11 +13,13 @@ import { useUserContext } from "../../Context/useContext/useUserContext";
 
 const Main = () => {
 
-    const devData = useUserContext();
+    const { 
+        developer
+    } = useUserContext();
 
     return (
         <Layout>
-            {devData ?
+            {developer[0].name ?
                 <div className={styles.app}>
                     <div className={styles.filter}>
                         <Filter />

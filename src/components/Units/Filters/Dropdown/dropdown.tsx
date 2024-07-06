@@ -7,7 +7,9 @@ import { useFilterContext } from "../../../../Context/useContext/useFilterContex
 
 const Dropdown = () => {
 
-    const devData = useUserContext();
+    const { 
+        developer
+    } = useUserContext();
     const {
         filters,
         setFilters
@@ -28,7 +30,7 @@ const Dropdown = () => {
                     })
                 }}
             >
-                {devData.map((each: any, index: number) => (
+                {developer.map((each: any, index: number) => (
                     <option 
                         value={each.name}
                         key={index}

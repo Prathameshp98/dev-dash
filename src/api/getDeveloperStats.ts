@@ -1,8 +1,10 @@
 import apiClient from './apiClient';
 
-const getDeveloperStats = async () => {
+const getDeveloperStats = async(
+  name: string
+) => {
   try {
-    const response = await apiClient.get('/users'); 
+    const response = await apiClient.get(`/users?name=${name}`); 
     return response.data[0].data;
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -11,3 +13,8 @@ const getDeveloperStats = async () => {
 };
 
 export default getDeveloperStats;
+
+
+// &
+//       startdate=${startdate}&
+//       enddate=${enddate}

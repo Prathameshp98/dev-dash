@@ -8,6 +8,11 @@ export interface Developer {
     activeDays: any;
 }
 
-const UserContext = createContext<Developer[]>([]);
+export interface DeveloperContextType {
+    developer: Developer[];
+    setDeveloper: React.Dispatch<React.SetStateAction<Developer[]>>; 
+}
+
+const UserContext = createContext<DeveloperContextType | undefined>(undefined);
 
 export default UserContext;

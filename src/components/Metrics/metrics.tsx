@@ -9,7 +9,9 @@ import { useFilterContext } from '../../Context/useContext/useFilterContext';
 
 const Metrics = () => {
 
-    const devData = useUserContext();
+    const { 
+        developer
+    } = useUserContext();
     const { filters } = useFilterContext();
     const[cardData, setCardData] = useState<{
         heading: string;
@@ -24,8 +26,8 @@ const Metrics = () => {
     });
 
     useEffect(() => {
-        if(devData.length){
-            const filteredDevData = devData.filter((data: any) => data.name == filters?.name);
+        if(developer[0].name){
+            const filteredDevData = developer.filter((data: any) => data.name == filters?.name);
             setCardData([
                 { heading: 'Total commits', count: filteredDevData[0].totalActivity[2].value },
                 { heading: 'Avg commits per day', count: Math.round(filteredDevData[0].totalActivity[2].value/14) },
@@ -39,7 +41,7 @@ const Metrics = () => {
             })
         }
   
-    }, [filters, devData]);
+    }, [filters, developer]);
 
     return (
         <div className={styles.metrics}>
