@@ -2,15 +2,21 @@
 import Card from "../../Card/card";
 
 import styles from './date.module.css';
-import DateProps from './date.d';
 import dataCompare from "../../../../utils/dataCompare";
 import { useRef } from "react";
+import { useFilterContext } from "../../../../Context/useContext/useFilterContext";
+import { useUserContext } from "../../../../Context/useContext/useUserContext";
+import { developerDefault } from "../../../../constants";
 
-const Date = ({
-    setFilters,
-    filters
-}: DateProps) => {
+const Date = () => {
 
+    const {
+        filters,
+        setFilters
+    } = useFilterContext();
+    const {
+        setDeveloper
+    } = useUserContext();
     const startDateRef = useRef<HTMLInputElement>(null);
     const endDateRef = useRef<HTMLInputElement>(null);
 
@@ -23,12 +29,13 @@ const Date = ({
             <div className={styles.dateGroup}>
                 <input 
                     type="date" 
+                    value={filters.startDate}
                     onChange={(event) => {
                         if(dataCompare?.(event.target.value, filters.endDate)){
                             setFilters?.({
                                 ...filters,
                                 startDate: event.target.value
-                            })
+                            });
                         } else {
                             alert('Start date should be less than end date');
                             if(startDateRef?.current?.value)
@@ -41,8 +48,10 @@ const Date = ({
                 />
                 <input 
                     type="date" 
+                    value={filters.endDate}
                     onChange={(event) => {
                         if(dataCompare?.(filters.startDate, event.target.value)){
+                            setDeveloper(developerDefault);
                             setFilters?.({
                                 ...filters,
                                 endDate: event.target.value

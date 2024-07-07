@@ -43,7 +43,7 @@ const Dropdown = () => {
                                 setFilters?.({
                                     ...filters,
                                     name: event.target.value
-                                })
+                                });
                             }}
                         >
                             <option value={'all'}>All</option>

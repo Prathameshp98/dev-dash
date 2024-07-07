@@ -25,7 +25,7 @@ function App() {
 
   useEffect(() => {
     (async() => {
-      const res = await getDeveloperStats(filters.name);
+      const res = await getDeveloperStats(filters.name, filters.startDate, filters.endDate);
       setDeveloper(res.AuthorWorklog.rows);
     })();
   }, [filters]);
